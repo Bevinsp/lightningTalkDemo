@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   countryOptions = ['United States','Canada','Mexico'];
   radioOptions = ['Person', 'Business'];
   testForm : FormGroup;
+  showDynamicPage: boolean = false;
   constructor(private fb: FormBuilder) {
 
   }
@@ -32,6 +33,10 @@ export class AppComponent implements OnInit {
       state: ['',[]],
       country: ['',[]]
     });
+  }
+
+  switch() {
+    this.showDynamicPage = !this.showDynamicPage;
   }
 
 }

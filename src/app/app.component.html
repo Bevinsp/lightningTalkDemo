@@ -1,5 +1,6 @@
-<div class="main-container">
-  <form [formGroup]='testForm'>
+<button class="margin-left-10 margin-top-10" mat-flat-button color="primary" (click)="switch()">{{showDynamicPage? 'Show Static Page' : 'Show Dynamic Page'}}</button>
+<div *ngIf = "!showDynamicPage" class="main-container">
+  <form  [formGroup]='testForm'>
     <mat-label>
       <h2>Hello!!!</h2>
     </mat-label>
@@ -87,3 +88,4 @@
     </div>
   </form>
 </div>
+<app-dynamic-page *ngIf="showDynamicPage" ></app-dynamic-page>
