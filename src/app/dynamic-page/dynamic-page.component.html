@@ -1,1 +1,44 @@
-<p>dynamic-page works!</p>
+<div class="main-container">
+    <mat-label>
+        <h2>Dynamic Form</h2>
+    </mat-label>
+    <form [formGroup]="dynamicPageForm">
+        <!-- SELECT -->
+        <span *ngFor="let field of fieldsToDisplay">
+            <span *ngIf="getValueFrom('fieldType',field) === 'select'">
+                <mat-form-field>
+                    <mat-label>
+                        {{getValueFrom('label',field)}}
+                    </mat-label>
+                    <mat-select [formControlName]='field'>
+                        <mat-option *ngFor="let option of getValueFrom('options',field)" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+
+            <!-- INPUT -->
+            <span *ngIf="getValueFrom('fieldType',field) === 'input' && getValueFrom('shouldShowField', field)">
+                <mat-form-field>
+                    <mat-label>
+                        {{getValueFrom('label',field)}}
+                    </mat-label>
+                    <input matInput [formControlName]='field'>
+                </mat-form-field>
+            </span>
+            <!-- RADIOGROUP-->
+            <span *ngIf="getValueFrom('fieldType',field) === 'radioGroup'">
+                <mat-label>
+                    {{getValueFrom('label',field)}}
+                </mat-label>
+                <mat-radio-group [formControlName]='field'>
+                    <mat-radio-button class="padding-left-10" *ngFor="let option of getValueFrom('options',field)"
+                        [value]='option'>
+                        {{option}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </span>
+        </span>
+    </form>
+</div>
