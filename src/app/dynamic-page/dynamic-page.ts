@@ -95,5 +95,12 @@ export let dynamicPageFormFields: formField[] = [
         labelText: 'Country',
         initialValue: '',
         options:['United States','Canada','Mexico']
-    }
+    },
+    // NEW FIELD
+    // {
+    //     formControlName: 'workPhone',
+    //     type: FieldTypes.INPUT,
+    //     labelText: 'Work Phone',
+    //     initialValue: '',
+    // },
 ]

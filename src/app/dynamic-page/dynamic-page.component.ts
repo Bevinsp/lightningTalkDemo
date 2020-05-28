@@ -11,7 +11,7 @@ export class DynamicPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
   dynamicPageForm: FormGroup;
-  fieldsToDisplay: any = {};
+  fieldsToDisplay: any = [];
 
   ngOnInit(): void {
     this.dynamicPageForm = this.fb.group({});

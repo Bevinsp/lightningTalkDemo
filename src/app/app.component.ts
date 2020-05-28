@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
       addressLine2: ['',[]],
       city: ['',[]],
       state: ['',[]],
-      country: ['',[]]
+      country: ['',[]],
+      // workPhone: ['',[]]
     });
   }
 

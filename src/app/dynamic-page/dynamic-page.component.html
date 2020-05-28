@@ -5,7 +5,7 @@
     <form [formGroup]="dynamicPageForm">
         <!-- SELECT -->
         <span *ngFor="let field of fieldsToDisplay">
-            <span *ngIf="getValueFrom('fieldType',field) === 'select'">
+            <div *ngIf="getValueFrom('fieldType',field) === 'select'">
                 <mat-form-field>
                     <mat-label>
                         {{getValueFrom('label',field)}}
@@ -16,19 +16,19 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-            </span>
+            </div>
 
             <!-- INPUT -->
-            <span *ngIf="getValueFrom('fieldType',field) === 'input' && getValueFrom('shouldShowField', field)">
+            <div *ngIf="getValueFrom('fieldType',field) === 'input' && getValueFrom('shouldShowField', field)">
                 <mat-form-field>
                     <mat-label>
                         {{getValueFrom('label',field)}}
                     </mat-label>
                     <input matInput [formControlName]='field'>
                 </mat-form-field>
-            </span>
+            </div>
             <!-- RADIOGROUP-->
-            <span *ngIf="getValueFrom('fieldType',field) === 'radioGroup'">
+            <div *ngIf="getValueFrom('fieldType',field) === 'radioGroup'">
                 <mat-label>
                     {{getValueFrom('label',field)}}
                 </mat-label>
@@ -38,7 +38,7 @@
                         {{option}}
                     </mat-radio-button>
                 </mat-radio-group>
-            </span>
+            </div>
         </span>
     </form>
 </div>
